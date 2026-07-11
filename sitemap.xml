@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This sitemap lists only URLs that exist today. The site currently
+  ships as a single page (index.html) with in-page anchor sections
+  (#about, #services, #leadership, #cta) — those are not separate
+  crawlable URLs and must not be listed here.
+  When /services/*, /work/, /blog/, /about/ etc. ship as real pages,
+  add a <url> entry for each at that time.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.vishnutechhub.in/</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

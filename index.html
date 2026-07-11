@@ -4,18 +4,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
   <meta name="description"
     content="Vishnu Tech Hub - the specialized software development and innovation hub under Sri Vishnu Educational Society. Where student engineers design, build, and ship real products." />
   <meta name="keywords"
     content="Vishnu Tech Hub, Sri Vishnu Educational Society, student engineering, software development, tech club" />
+  <link rel="canonical" href="https://www.vishnutechhub.in/" />
+  <title>Vishnu Tech Hub - Code Today, Create Tomorrow</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vishnu Tech Hub" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://www.vishnutechhub.in/" />
   <meta property="og:title" content="Vishnu Tech Hub - Code Today, Create Tomorrow" />
   <meta property="og:description"
     content="Vishnu Tech Hub is where student engineers design, build, and ship real products." />
-  <meta property="og:type" content="website" />
-  <title>Vishnu Tech Hub - Code Today, Create Tomorrow</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta property="og:image" content="https://www.vishnutechhub.in/assets/images/og/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Vishnu Tech Hub — Code Today, Create Tomorrow" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vishnu Tech Hub - Code Today, Create Tomorrow" />
+  <meta name="twitter:description"
+    content="Vishnu Tech Hub is where student engineers design, build, and ship real products." />
+  <meta name="twitter:image" content="https://www.vishnutechhub.in/assets/images/og/og-cover.jpg" />
+
+  <!-- Icons & web app manifest -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#38686A" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "@id": "https://www.vishnutechhub.in/#organization",
+    "name": "Vishnu Tech Hub",
+    "alternateName": "VTH",
+    "url": "https://www.vishnutechhub.in/",
+    "logo": "https://www.vishnutechhub.in/assets/images/logo/Vishnulogo.png",
+    "image": "https://www.vishnutechhub.in/assets/images/og/og-cover.jpg",
+    "description": "Vishnu Tech Hub is the specialized software development and innovation hub under Sri Vishnu Educational Society, where student engineers design, build, and ship enterprise-grade software products.",
+    "email": "vishnutechhub@srivishnu.edu.in",
+    "sameAs": ["https://www.linkedin.com/company/vishnu-tech-hub"],
+    "parentOrganization": {
+      "@type": "EducationalOrganization",
+      "name": "Sri Vishnu Educational Society",
+      "url": "https://www.srivishnu.edu.in/"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sri Vishnu Educational Society Campus",
+      "addressLocality": "Kovvada",
+      "addressRegion": "Andhra Pradesh",
+      "postalCode": "534202",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+  <!-- Structured data: LocalBusiness (Maps / Local Pack signals) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.vishnutechhub.in/#localbusiness",
+    "name": "Vishnu Tech Hub",
+    "url": "https://www.vishnutechhub.in/",
+    "image": "https://www.vishnutechhub.in/assets/images/og/og-cover.jpg",
+    "telephone": "[INSERT OFFICIAL CONTACT NUMBER]",
+    "email": "vishnutechhub@srivishnu.edu.in",
+    "priceRange": "Contact for engagement details",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sri Vishnu Educational Society Campus",
+      "addressLocality": "Kovvada",
+      "addressRegion": "Andhra Pradesh",
+      "postalCode": "534202",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "[INSERT CAMPUS LATITUDE]",
+      "longitude": "[INSERT CAMPUS LONGITUDE]"
+    },
+    "sameAs": ["https://www.linkedin.com/company/vishnu-tech-hub"]
+  }
+  </script>
 </head>
 
 <body>
@@ -35,7 +121,7 @@
 
         <!-- Logo / Wordmark -->
         <a href="#hero" class="nav-logo" aria-label="Vishnu Tech Hub - Home">
-          <img src="Vishnulogo.png" alt="Vishnu Tech Hub Logo" class="nav-logo-img" />
+          <img src="assets/images/logo/Vishnulogo.png" alt="Vishnu Tech Hub Logo" class="nav-logo-img" />
           <div class="nav-wordmark">
             <span class="wordmark-top">Vishnu Tech Hub</span>
           </div>
@@ -160,7 +246,7 @@
         <!-- Right column - illustration -->
         <div class="hero-right">
           <div class="hero-illustration">
-            <img src="hero_students.png"
+            <img src="assets/images/hero/hero_students.png"
               alt="Vishnu Tech Hub students collaborating with laptops and tablets in professional smart-casual attire, representing the hub's engineering community"
               width="600" height="620" />
           </div>
@@ -460,7 +546,7 @@
               <div class="leader-card" role="group" aria-label="Card 1 of 5: Dr. B V Raju">
                 <div class="leader-card-inner">
                   <div class="leader-avatar" aria-label="Portrait of Dr. B V Raju">
-                    <img src="leader_founder.png" alt="Dr. B V Raju - Founder Chairman"
+                    <img src="assets/images/leadership/leader_founder.png" alt="Dr. B V Raju - Founder Chairman"
                       onerror="this.style.display='none'" />
                   </div>
                   <span class="leader-title-chip">Founder Chairman</span>
@@ -477,7 +563,7 @@
               <div class="leader-card" role="group" aria-label="Card 2 of 5: K.V. Vishnu Raju">
                 <div class="leader-card-inner">
                   <div class="leader-avatar" aria-label="Portrait of K.V. Vishnu Raju">
-                    <img src="leader_chairman.png" alt="K.V. Vishnu Raju - Chairman"
+                    <img src="assets/images/leadership/leader_chairman.png" alt="K.V. Vishnu Raju - Chairman"
                       onerror="this.style.display='none'" />
                   </div>
                   <span class="leader-title-chip">Chairman</span>
@@ -494,7 +580,7 @@
               <div class="leader-card" role="group" aria-label="Card 3 of 5: Ravichandran Rajagopal">
                 <div class="leader-card-inner">
                   <div class="leader-avatar" aria-label="Portrait of Ravichandran Rajagopal">
-                    <img src="leader_vice.jpg" alt="Ravichandran Rajagopal - Vice Chairman"
+                    <img src="assets/images/leadership/leader_vice.jpg" alt="Ravichandran Rajagopal - Vice Chairman"
                       onerror="this.style.display='none'" />
                   </div>
                   <span class="leader-title-chip">Vice Chairman</span>
@@ -511,7 +597,7 @@
               <div class="leader-card" role="group" aria-label="Card 4 of 5: Shri K. Aditya Vissam">
                 <div class="leader-card-inner">
                   <div class="leader-avatar" aria-label="Portrait of Shri. K. Aditya Vissam">
-                    <img src="leader_secretary.jpg" alt="Shri. K. Aditya Vissam - Secretary"
+                    <img src="assets/images/leadership/leader_secretary.jpg" alt="Shri. K. Aditya Vissam - Secretary"
                       onerror="this.style.display='none'" />
                   </div>
                   <span class="leader-title-chip">Secretary</span>
@@ -528,7 +614,7 @@
               <div class="leader-card" role="group" aria-label="Card 5 of 5: Dr. Pericharla Srinivasa Raju">
                 <div class="leader-card-inner">
                   <div class="leader-avatar" aria-label="Portrait of Dr. Pericharla Srinivasa Raju">
-                    <img src="leader_director.jpg" alt="Dr. Pericharla Srinivasa Raju - Director"
+                    <img src="assets/images/leadership/leader_director.jpg" alt="Dr. Pericharla Srinivasa Raju - Director"
                       onerror="this.style.display='none'" />
                   </div>
                   <span class="leader-title-chip">Director</span>
@@ -723,7 +809,7 @@
     </div><!-- /container -->
   </footer><!-- /#site-footer -->
 
-  <script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
