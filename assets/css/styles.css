@@ -1229,31 +1229,56 @@ button {
     var(--color-bg);
 }
 
-/* 3 columns: heading, 6 staggered frames, 4 frames */
-.team-columns {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-xl);
-}
-
-.team-col {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.team-col-intro {
-  padding-top: var(--space-sm);
-}
-
-/* ── Intro block ── */
+/* ── Centered intro heading ── */
 .team-intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: var(--space-md);
+  max-width: 640px;
+  margin: 0 auto var(--space-2xl);
+}
+
+/* Single featured frame, centered on its own row */
+.team-top-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.team-card-featured {
+  flex: 0 0 220px;
+}
+
+/* Section label above a row of frames */
+.team-row-heading {
+  display: table;
+  margin: 0 auto var(--space-2xl);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.4rem;
+  border-radius: var(--radius-full);
+  transform: rotate(-1deg);
+}
+
+/* Rows of frames below - 5, then 4 */
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-lg) var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.team-row .team-card {
+  flex: 0 0 165px;
 }
 
 .team-heading {
@@ -1269,7 +1294,7 @@ button {
   color: var(--color-bg);
   padding: 0.15em 0.5em;
   border-radius: var(--radius-sm);
-  margin-top: 0.15em;
+  margin: 0.15em 0.1em 0;
 }
 
 .team-heading-chip-a {
@@ -1302,9 +1327,9 @@ button {
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-/* Stagger every group of 3 so frames don't line up in a row */
-.team-card:nth-of-type(3n+2) { transform: rotate(-1.1deg); margin-top: 1.85rem; }
-.team-card:nth-of-type(3n)   { transform: rotate(1.1deg);  margin-top: 0.9rem; }
+/* Zig-zag: every group of 3 within a row floats a little above/below its neighbours */
+.team-row .team-card:nth-of-type(3n+2) { transform: rotate(-1.4deg); margin-top: 2.1rem; }
+.team-row .team-card:nth-of-type(3n)   { transform: rotate(1.4deg);  margin-top: 0.4rem; }
 
 .team-card:hover {
   transform: rotate(0deg) translateY(-4px);
@@ -1313,7 +1338,7 @@ button {
 .team-card-photo {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   border: 1.5px solid var(--color-text);
   border-radius: var(--radius-md);
   overflow: visible;
@@ -1332,35 +1357,56 @@ button {
   outline-offset: -4px;
 }
 
+/* Empty state: click/tap anywhere on the frame to upload a photo */
 .team-photo-placeholder {
-  display: flex;
+  display: none;
   position: absolute;
-  inset: 0;
+  inset: 5px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: calc(var(--radius-md) - 1.5px);
+  gap: 0.35rem;
+  border: 1.5px dashed var(--color-text);
+  border-radius: calc(var(--radius-md) - 4px);
+  cursor: pointer;
+  opacity: 0.7;
 }
 
-.team-photo-placeholder svg {
-  width: 20%;
-  height: 20%;
+.team-upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.team-upload-icon {
+  width: 22%;
   color: var(--color-text);
-  opacity: 0.55;
 }
 
-/* Colour cycle across the 10 frames */
-.team-card:nth-of-type(6n+2) .team-card-photo,
-.team-card:nth-of-type(6n+2) .team-photo-placeholder { background: var(--color-primary-light); }
-.team-card:nth-of-type(6n+3) .team-card-photo,
-.team-card:nth-of-type(6n+3) .team-photo-placeholder { background: var(--color-tertiary); }
-.team-card:nth-of-type(6n+4) .team-card-photo,
-.team-card:nth-of-type(6n+4) .team-photo-placeholder { background: var(--color-secondary); }
-.team-card:nth-of-type(6n+5) .team-card-photo,
-.team-card:nth-of-type(6n+5) .team-photo-placeholder { background: var(--color-tertiary-light); }
-.team-card:nth-of-type(6n+0) .team-card-photo,
-.team-card:nth-of-type(6n+0) .team-photo-placeholder { background: var(--color-secondary-light); }
-.team-card:nth-of-type(6n+1) .team-card-photo,
-.team-card:nth-of-type(6n+1) .team-photo-placeholder { background: var(--color-primary); }
+.team-upload-text {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* Mix up the colour across the featured frame and both rows */
+.team-card-featured .team-card-photo { background: var(--color-primary); }
+
+.team-row-5 .team-card:nth-of-type(1) .team-card-photo { background: var(--color-tertiary); }
+.team-row-5 .team-card:nth-of-type(2) .team-card-photo { background: var(--color-secondary-light); }
+.team-row-5 .team-card:nth-of-type(3) .team-card-photo { background: var(--color-primary-light); }
+.team-row-5 .team-card:nth-of-type(4) .team-card-photo { background: var(--color-secondary); }
+.team-row-5 .team-card:nth-of-type(5) .team-card-photo { background: var(--color-tertiary-light); }
+
+.team-row-4 .team-card:nth-of-type(1) .team-card-photo { background: var(--color-primary-light); }
+.team-row-4 .team-card:nth-of-type(2) .team-card-photo { background: var(--color-tertiary); }
+.team-row-4 .team-card:nth-of-type(3) .team-card-photo { background: var(--color-secondary); }
+.team-row-4 .team-card:nth-of-type(4) .team-card-photo { background: var(--color-primary); }
 
 /* Webflow-style corner handles */
 .frame-handle {
@@ -1378,44 +1424,81 @@ button {
 .corner-bl { bottom: -5px; left: -5px; }
 .corner-br { bottom: -5px; right: -5px; }
 
-/* Empty category-label chip - fill in later */
-.team-role-tag {
+/* Text box overlapping the bottom edge of its frame: name, designation, mail + LinkedIn */
+.team-tag-card {
   position: absolute;
-  top: -11px;
   left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
+  bottom: -30px;
+  transform: translateX(-50%) rotate(-1.5deg);
   z-index: 3;
-  display: block;
-  width: 3.4rem;
-  height: 1.15rem;
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
   background: var(--color-surface);
-  border: 1.5px dashed var(--color-text);
-  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-text);
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
+  padding: 0.4rem 0.55rem;
 }
 
-@media (max-width: 900px) {
-  .team-columns {
-    flex-direction: column;
-  }
-
-  .team-col {
-    width: 100%;
-  }
+.team-tag-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  color: var(--color-text);
 }
+
+.team-tag-role {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  line-height: 1.15;
+  color: var(--color-text);
+  opacity: 0.65;
+}
+
+.team-tag-links {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.team-tag-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+.team-tag-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Featured frame's overlapping text box is a size up */
+.team-card-featured .team-tag-card {
+  width: 90%;
+  bottom: -36px;
+  padding: 0.55rem 0.75rem;
+  gap: 0.25rem;
+}
+
+.team-card-featured .team-tag-name { font-size: 0.9rem; }
+.team-card-featured .team-tag-role { font-size: 0.74rem; }
+.team-card-featured .team-tag-icon { width: 19px; height: 19px; }
 
 @media (max-width: 640px) {
-  .team-col-2,
-  .team-col-3 {
-    max-width: 260px;
-    margin-inline: auto;
+  .team-card-featured {
+    flex-basis: 165px;
   }
 
-  .team-card:nth-of-type(3n+2),
-  .team-card:nth-of-type(3n) {
-    transform: none;
-    margin-top: 0;
+  .team-row .team-card {
+    flex: 0 0 125px;
   }
+
+  .team-row .team-card:nth-of-type(3n+2) { margin-top: 1.5rem; }
+  .team-row .team-card:nth-of-type(3n)   { margin-top: 0.3rem; }
 }
 
 /* ══════════════════════════════════════════
