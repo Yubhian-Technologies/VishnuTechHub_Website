@@ -1339,10 +1339,22 @@ button {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
+  padding: 12px;
   border: 1.5px solid var(--color-text);
   border-radius: var(--radius-md);
   overflow: visible;
   box-shadow: var(--shadow-sm);
+}
+
+/* Decorative "second line" stays fixed at the frame edge, independent of the photo's own inset */
+.team-card-photo::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1.5px solid var(--color-text);
+  border-radius: calc(var(--radius-md) - 2px);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .team-card-photo img {
@@ -1352,9 +1364,6 @@ button {
   border-radius: calc(var(--radius-md) - 1.5px);
   object-fit: cover;
   object-position: top center;
-  /* subtle cutout/outline pop */
-  outline: 1.5px solid var(--color-text);
-  outline-offset: -4px;
 }
 
 /* Empty state: click/tap anywhere on the frame to upload a photo */
@@ -1431,7 +1440,9 @@ button {
   bottom: -30px;
   transform: translateX(-50%) rotate(-1.5deg);
   z-index: 3;
-  width: 88%;
+  width: 94%;
+  max-width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -1439,23 +1450,33 @@ button {
   border: 1.5px solid var(--color-text);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
-  padding: 0.4rem 0.55rem;
+  padding: 0.4rem 0.5rem;
 }
 
 .team-tag-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.72rem;
-  line-height: 1.2;
+  font-size: 0.8rem;
+  line-height: 1.25;
   color: var(--color-text);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
+
+/* Scale the name down as the text gets longer, so it still fits the box */
+.team-tag-name.name-md { font-size: 0.68rem; }
+.team-tag-name.name-lg { font-size: 0.58rem; }
+.team-tag-name.name-xl { font-size: 0.5rem; }
 
 .team-tag-role {
   font-family: var(--font-body);
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   line-height: 1.15;
   color: var(--color-text);
   opacity: 0.65;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .team-tag-links {
@@ -1469,6 +1490,16 @@ button {
   height: 16px;
   color: var(--color-text);
   opacity: 0.6;
+  text-decoration: none;
+}
+
+a.team-tag-icon {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+a.team-tag-icon:hover {
+  opacity: 1;
 }
 
 .team-tag-icon svg {
