@@ -1220,6 +1220,205 @@ button {
 }
 
 /* ══════════════════════════════════════════
+   9b. TEAM SECTION
+══════════════════════════════════════════ */
+#team {
+  padding-block: var(--space-4xl);
+  background:
+    repeating-linear-gradient(90deg, var(--color-border) 0, var(--color-border) 1px, transparent 1px, transparent 140px),
+    var(--color-bg);
+}
+
+/* 3 columns: heading, 6 staggered frames, 4 frames */
+.team-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xl);
+}
+
+.team-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.team-col-intro {
+  padding-top: var(--space-sm);
+}
+
+/* ── Intro block ── */
+.team-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.team-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+.team-heading-chip {
+  display: inline-block;
+  color: var(--color-bg);
+  padding: 0.15em 0.5em;
+  border-radius: var(--radius-sm);
+  margin-top: 0.15em;
+}
+
+.team-heading-chip-a {
+  background: var(--color-primary);
+  transform: rotate(-2deg);
+}
+
+.team-heading-chip-b {
+  background: var(--color-tertiary);
+  transform: rotate(1deg);
+}
+
+.team-lead {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.team-intro-btn {
+  margin-top: var(--space-sm);
+}
+
+/* ── Empty member frames ── */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Stagger every group of 3 so frames don't line up in a row */
+.team-card:nth-of-type(3n+2) { transform: rotate(-1.1deg); margin-top: 1.85rem; }
+.team-card:nth-of-type(3n)   { transform: rotate(1.1deg);  margin-top: 0.9rem; }
+
+.team-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.team-card-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1.5px solid var(--color-text);
+  border-radius: var(--radius-md);
+  overflow: visible;
+  box-shadow: var(--shadow-sm);
+}
+
+.team-card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--radius-md) - 1.5px);
+  object-fit: cover;
+  object-position: top center;
+  /* subtle cutout/outline pop */
+  outline: 1.5px solid var(--color-text);
+  outline-offset: -4px;
+}
+
+.team-photo-placeholder {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--radius-md) - 1.5px);
+}
+
+.team-photo-placeholder svg {
+  width: 20%;
+  height: 20%;
+  color: var(--color-text);
+  opacity: 0.55;
+}
+
+/* Colour cycle across the 10 frames */
+.team-card:nth-of-type(6n+2) .team-card-photo,
+.team-card:nth-of-type(6n+2) .team-photo-placeholder { background: var(--color-primary-light); }
+.team-card:nth-of-type(6n+3) .team-card-photo,
+.team-card:nth-of-type(6n+3) .team-photo-placeholder { background: var(--color-tertiary); }
+.team-card:nth-of-type(6n+4) .team-card-photo,
+.team-card:nth-of-type(6n+4) .team-photo-placeholder { background: var(--color-secondary); }
+.team-card:nth-of-type(6n+5) .team-card-photo,
+.team-card:nth-of-type(6n+5) .team-photo-placeholder { background: var(--color-tertiary-light); }
+.team-card:nth-of-type(6n+0) .team-card-photo,
+.team-card:nth-of-type(6n+0) .team-photo-placeholder { background: var(--color-secondary-light); }
+.team-card:nth-of-type(6n+1) .team-card-photo,
+.team-card:nth-of-type(6n+1) .team-photo-placeholder { background: var(--color-primary); }
+
+/* Webflow-style corner handles */
+.frame-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-text);
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.corner-tl { top: -5px;    left: -5px; }
+.corner-tr { top: -5px;    right: -5px; }
+.corner-bl { bottom: -5px; left: -5px; }
+.corner-br { bottom: -5px; right: -5px; }
+
+/* Empty category-label chip - fill in later */
+.team-role-tag {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 3;
+  display: block;
+  width: 3.4rem;
+  height: 1.15rem;
+  background: var(--color-surface);
+  border: 1.5px dashed var(--color-text);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 900px) {
+  .team-columns {
+    flex-direction: column;
+  }
+
+  .team-col {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-col-2,
+  .team-col-3 {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  .team-card:nth-of-type(3n+2),
+  .team-card:nth-of-type(3n) {
+    transform: none;
+    margin-top: 0;
+  }
+}
+
+/* ══════════════════════════════════════════
    10. CTA SECTION
 ══════════════════════════════════════════ */
 #cta {
