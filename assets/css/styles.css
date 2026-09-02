@@ -1456,7 +1456,7 @@ button {
 .team-tag-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   line-height: 1.25;
   color: var(--color-text);
   overflow-wrap: break-word;
@@ -1464,10 +1464,12 @@ button {
   hyphens: auto;
 }
 
-/* Scale the name down as the text gets longer, so it still fits the box */
-.team-tag-name.name-md { font-size: 0.68rem; }
-.team-tag-name.name-lg { font-size: 0.58rem; }
-.team-tag-name.name-xl { font-size: 0.5rem; }
+/* Scale the name to the length of the text, so short names read bigger and
+   long ones still fit inside the box without overflowing */
+.team-tag-name.name-sm { font-size: 0.72rem; }
+.team-tag-name.name-md { font-size: 0.62rem; }
+.team-tag-name.name-lg { font-size: 0.56rem; }
+.team-tag-name.name-xl { font-size: 0.58rem; }
 
 .team-tag-role {
   font-family: var(--font-body);
@@ -1515,7 +1517,9 @@ a.team-tag-icon:hover {
   gap: 0.25rem;
 }
 
-.team-card-featured .team-tag-name { font-size: 0.9rem; }
+.team-card-featured .team-tag-name { font-size: 1rem; }
+.team-card-featured .team-tag-name.name-sm { font-size: 0.86rem; }
+.team-card-featured .team-tag-name.name-md { font-size: 0.76rem; }
 .team-card-featured .team-tag-role { font-size: 0.74rem; }
 .team-card-featured .team-tag-icon { width: 19px; height: 19px; }
 
