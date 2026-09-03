@@ -1989,33 +1989,3 @@ a.team-tag-icon:hover {
   }
 }
 
-/* ══════════════════════════════════════════
-   16. CUSTOM CURSOR
-══════════════════════════════════════════ */
-* { cursor: none !important; }
-
-#cursor-fluid {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background: var(--color-tertiary);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform-origin: center;
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
-  will-change: transform;
-  box-shadow: 0 4px 12px rgba(246, 130, 140, 0.4);
-}
-
-body:has(a:hover) #cursor-fluid,
-body:has(button:hover) #cursor-fluid {
-  width: 48px;
-  height: 48px;
-  background: rgba(246, 130, 140, 0.2);
-  border: 2px solid var(--color-tertiary);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 16px rgba(246, 130, 140, 0.6);
-}
