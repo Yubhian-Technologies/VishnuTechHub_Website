@@ -1336,7 +1336,8 @@ button {
 .team-row .team-card:nth-of-type(3n+2) { transform: rotate(-1.4deg); margin-top: 2.1rem; }
 .team-row .team-card:nth-of-type(3n)   { transform: rotate(1.4deg);  margin-top: 0.4rem; }
 
-.team-card:hover {
+.team-card:hover,
+.team-row .team-card:hover {
   transform: rotate(0deg) translateY(-4px);
 }
 
